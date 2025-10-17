@@ -298,3 +298,32 @@ input:checked + .slider .fa-moon {
 #formacao h3, #formacao ul {
   margin-bottom: 20px;
 }
+
+/* --- CÓDIGO PARA RESPONSIVIDADE (CELULAR) --- */
+
+/* Esta regra só será aplicada em telas com largura máxima de 768 pixels (tablets e celulares) */
+@media (max-width: 768px) {
+
+    /* Altera o layout do cabeçalho para uma coluna vertical */
+    header .container {
+        flex-direction: column; /* Empilha os itens (nome, menu, interruptor) verticalmente */
+        gap: 20px; /* Adiciona um espaço agradável entre os itens empilhados */
+    }
+
+    /* Altera o menu de navegação para uma coluna também */
+    header nav ul {
+        flex-direction: column; /* Empilha os links do menu (Sobre, Formação, etc.) */
+        align-items: center; /* Centraliza os links de texto */
+        gap: 15px; /* Adiciona um espaço entre cada link do menu */
+    }
+
+    /* Remove a margem da esquerda que só fazia sentido no layout horizontal */
+    header nav ul li {
+        margin-left: 0;
+    }
+
+    /* Reduz um pouco o espaçamento das seções para telas menores */
+    section {
+        padding: 40px 0;
+    }
+}
