@@ -1,5 +1,7 @@
+/* Pega a fonte 'Poppins' do Google Fonts para usar no site */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
+/* Define as cores principais do site (tema claro) em variáveis */
 :root {
     --cor-fundo: #f4f4f4;
     --cor-texto: #333;
@@ -8,6 +10,7 @@
     --cor-borda: #ddd;
 }
 
+/* Muda o valor das variáveis de cor quando o tema escuro está ativo */
 body.dark-theme {
     --cor-fundo: #222;
     --cor-texto: #f4f4f4;
@@ -16,6 +19,7 @@ body.dark-theme {
     --cor-borda: #555;
 }
 
+/* Zera as margens e espaçamentos padrão de todos os elementos */
 * {
     margin: 0;
     padding: 0;
@@ -23,17 +27,20 @@ body.dark-theme {
 }
 
 html {
+    /* Deixa a rolagem suave ao clicar nos links do menu */
     scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto);
+    font-family: 'Poppins', sans-serif; /* Define a fonte principal do site */
+    background-color: var(--cor-fundo); /* Usa a variável de cor para o fundo */
+    color: var(--cor-texto); /* Usa a variável de cor para o texto */
     line-height: 1.6;
+    /* Animação suave para a troca de tema */
     transition: background-color 0.3s, color 0.3s;
 }
 
+/* Classe para centralizar o conteúdo da página */
 .container {
     max-width: 960px;
     margin: auto;
@@ -45,31 +52,31 @@ header {
     background-color: var(--cor-cabecalho);
     border-bottom: 1px solid var(--cor-borda);
     padding: 1rem 0;
+    /* Faz o menu ficar fixo no topo ao rolar a página */
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 1000; /* Garante que o menu fique na frente de outros elementos */
     transition: background-color 0.3s, border-bottom 0.3s;
 }
 
+/* Alinha os itens do cabeçalho (nome, menu, interruptor) um do lado do outro */
 header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-header h1 {
-    font-size: 1.5rem;
-}
-
+/* Remove as bolinhas da lista do menu */
 header nav ul {
     list-style: none;
     display: flex;
 }
 
 header nav ul li {
-    margin-left: 20px;
+    margin-left: 20px; /* Espaço entre os links do menu */
 }
 
+/* Tira o sublinhado dos links do menu */
 header nav ul li a {
     text-decoration: none;
     color: var(--cor-primaria);
@@ -77,15 +84,18 @@ header nav ul li a {
     transition: color 0.3s;
 }
 
+/* Muda a cor do link quando passamos o mouse */
 header nav ul li a:hover {
     color: var(--cor-texto);
 }
 
+/* Estilo padrão para todas as seções */
 section {
     padding: 60px 0;
     border-bottom: 1px solid var(--cor-borda);
 }
 
+/* Estilo para os títulos de cada seção */
 section h2 {
     margin-bottom: 20px;
     text-align: center;
@@ -93,12 +103,15 @@ section h2 {
     color: var(--cor-primaria);
 }
 
+/* Cria um grid para os itens do portfólio */
 .portifolio-grid {
     display: grid;
+    /* Define que as colunas se ajustam automaticamente ao tamanho da tela */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    gap: 20px; /* Espaço entre os cards do portfólio */
 }
 
+/* Estilo de cada card do portfólio */
 .portifolio-item {
     background: var(--cor-cabecalho);
     padding: 20px;
@@ -107,73 +120,13 @@ section h2 {
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
+/* Efeito de "levantar" o card ao passar o mouse */
 .portifolio-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.portifolio-item h3 {
-    margin-bottom: 10px;
-}
-
-.portifolio-item a {
-    display: inline-block;
-    margin-top: 15px;
-    text-decoration: none;
-    color: var(--cor-primaria);
-    font-weight: bold;
-}
-
-form {
-    max-width: 600px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-}
-
-form label {
-    margin-bottom: 5px;
-}
-
-form input, form textarea {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid var(--cor-borda);
-    border-radius: 5px;
-    background: var(--cor-fundo);
-    color: var(--cor-texto);
-    font-family: 'Poppins', sans-serif;
-}
-
-form button {
-    padding: 12px;
-    border: none;
-    background-color: var(--cor-primaria);
-    color: #fff;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-form button:hover {
-    opacity: 0.9;
-}
-
-footer {
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 40px;
-}
-
-.intro-portifolio {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 40px auto;
-    font-size: 1.1rem;
-}
-
+/* Estilo dos cards de projetos futuros */
 .portifolio-item.futuro {
     position: relative;
     overflow: hidden;
@@ -181,102 +134,116 @@ footer {
     border-width: 2px;
 }
 
-.portifolio-item.futuro .conteudo-futuro {
-    opacity: 0.5;
-    transition: opacity 0.4s ease;
+/* Estilo do formulário de contato */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    /* Deixa os campos um embaixo do outro */
+    flex-direction: column;
 }
 
-.portifolio-item.futuro:hover .conteudo-futuro {
+/* Estilo do rodapé */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+
+/* --- Estilos para o Interruptor de Tema --- */
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+/* Esconde o checkbox original, pois vamos criar um visual para ele */
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* O 'slider' é o fundo do interruptor */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* Cria a bolinha branca que desliza no interruptor */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+/* Estilo aplicado quando o interruptor está LIGADO */
+input:checked + .slider {
+    background-color: var(--cor-primaria);
+}
+
+/* Move o círculo para a direita quando o interruptor está LIGADO */
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Esconde o ícone da lua (no tema claro) */
+.slider .fa-moon {
+    opacity: 0;
+}
+
+/* Esconde o sol e mostra a lua quando o interruptor está LIGADO */
+input:checked + .slider .fa-sun {
+    opacity: 0;
+}
+input:checked + .slider .fa-moon {
     opacity: 1;
 }
 
-.portifolio-item.futuro span {
-    position: absolute;
-    top: 15px;
-    right: -50px;
-    background-color: var(--cor-primaria);
-    color: #fff;
-    padding: 5px 40px;
-    font-weight: bold;
-    font-size: 0.9rem;
-    transform: rotate(45deg);
-    transition: right 0.4s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
 
-.portifolio-item.futuro:hover span {
-    right: -30px;
-}
-
-.theme-switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-.theme-switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: .4s;
-  border-radius: 34px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: .4s;
-  border-radius: 50%;
-}
-
-input:checked + .slider {
-  background-color: var(--cor-primaria);
-}
-
-input:checked + .slider:before {
-  transform: translateX(26px);
-}
-
-.slider .fas {
-  color: #fff;
-  transition: opacity 0.4s ease;
-}
-
-.slider .fa-moon {
-  opacity: 0;
-}
-
-input:checked + .slider .fa-sun {
-  opacity: 0;
-}
-
-input:checked + .slider .fa-moon {
-  opacity: 1;
-}
-
+/* --- Classes de Espaçamento --- */
 .espaco-paragrafo {
-  margin-bottom: 25px;
+    margin-bottom: 25px;
 }
 
 #formacao h3, #formacao ul {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+
+/* --- CÓDIGO PARA RESPONSIVIDADE (CELULAR) --- */
+/* Estas regras só valem para telas pequenas, como as de celulares */
+@media (max-width: 768px) {
+    /* Empilha os itens do cabeçalho na vertical */
+    header .container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* Empilha os links do menu também */
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    /* Remove a margem lateral que não é mais necessária no celular */
+    header nav ul li {
+        margin-left: 0;
+    }
 }
