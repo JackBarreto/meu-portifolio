@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', function () {
     //Adiciona um "escutador de eventos" que fica monitorando o checkbox.
     themeCheckbox.addEventListener('change', function () {
         // Esta função anônima é executada TODA VEZ que o estado do checkbox muda (marcado/desmarcado).
-
-        // 4. Acessa a lista de classes CSS da tag <body> e usa a função .toggle() para adicionar a classe 'dark-theme' se ela não existir, ou para remover a classe 'dark-theme' se ela já existir.
+        
+        // Acessa a lista de classes CSS da tag <body> e usa a função .toggle() para adicionar a classe 'dark-theme' se ela não existir, ou para remover a classe 'dark-theme' se ela já existir.
         document.body.classList.toggle('dark-theme');
     });
 

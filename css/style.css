@@ -1,9 +1,6 @@
-/* Importando uma fonte do Google Fonts para um visual mais moderno */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-/* Variáveis de Cores para os Temas */
 :root {
-    /* Tema Claro (Padrão) */
     --cor-fundo: #f4f4f4;
     --cor-texto: #333;
     --cor-primaria: #007bff;
@@ -11,7 +8,6 @@
     --cor-borda: #ddd;
 }
 
-/* Estilos para o Tema Escuro */
 body.dark-theme {
     --cor-fundo: #222;
     --cor-texto: #f4f4f4;
@@ -20,7 +16,6 @@ body.dark-theme {
     --cor-borda: #555;
 }
 
-/* Estilos Gerais */
 * {
     margin: 0;
     padding: 0;
@@ -28,7 +23,6 @@ body.dark-theme {
 }
 
 html {
-    /* Habilita a rolagem suave ao clicar nos links âncora */
     scroll-behavior: smooth;
 }
 
@@ -47,12 +41,11 @@ body {
     padding: 0 20px;
 }
 
-/* Cabeçalho e Navegação */
 header {
     background-color: var(--cor-cabecalho);
     border-bottom: 1px solid var(--cor-borda);
     padding: 1rem 0;
-    position: sticky; /* Menu fixo no topo */
+    position: sticky;
     top: 0;
     z-index: 1000;
     transition: background-color 0.3s, border-bottom 0.3s;
@@ -88,9 +81,8 @@ header nav ul li a:hover {
     color: var(--cor-texto);
 }
 
-/* Seções do Conteúdo Principal */
 section {
-    padding: 60px 0; /* Espaçamento para não ficar colado no menu */
+    padding: 60px 0;
     border-bottom: 1px solid var(--cor-borda);
 }
 
@@ -101,39 +93,6 @@ section h2 {
     color: var(--cor-primaria);
 }
 
-/* Estilos específicos do Portifólio */
-.portifolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-}
-
-.portifolio-item {
-    background: var(--cor-cabecalho);
-    padding: 20px;
-    border: 1px solid var(--cor-borda);
-    border-radius: 5px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.portifolio-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.portifolio-item h3 {
-    margin-bottom: 10px;
-}
-
-.portifolio-item a {
-    display: inline-block;
-    margin-top: 15px;
-    text-decoration: none;
-    color: var(--cor-primaria);
-    font-weight: bold;
-}
-
-/* Formulário de Contato */
 form {
     max-width: 600px;
     margin: 0 auto;
@@ -171,19 +130,36 @@ form button:hover {
     opacity: 0.9;
 }
 
-/* Rodapé */
 footer {
     text-align: center;
     padding: 20px 0;
     margin-top: 40px;
 }
 
-/* --- Estilos Adicionais para a Seção Portifólio Interativa --- */
 .intro-portifolio {
     text-align: center;
     max-width: 700px;
     margin: 0 auto 40px auto;
     font-size: 1.1rem;
+}
+
+.portifolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.portifolio-item {
+    background: var(--cor-cabecalho);
+    padding: 20px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.portifolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .portifolio-item.futuro {
@@ -220,7 +196,6 @@ footer {
     right: -30px;
 }
 
-/* --- Estilos para o Interruptor de Tema --- */
 .theme-switch {
   position: relative;
   display: inline-block;
@@ -242,7 +217,6 @@ footer {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
   transition: .4s;
   border-radius: 34px;
   display: flex;
@@ -258,7 +232,6 @@ footer {
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
   transition: .4s;
   border-radius: 50%;
 }
@@ -268,8 +241,6 @@ input:checked + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
 
@@ -285,44 +256,36 @@ input:checked + .slider:before {
 input:checked + .slider .fa-sun {
   opacity: 0;
 }
+
 input:checked + .slider .fa-moon {
   opacity: 1;
 }
 
-/* Cria o espaço entre os dois parágrafos na seção "Sobre mim" */
 .espaco-paragrafo {
   margin-bottom: 25px;
 }
 
-/* Adiciona um espaço abaixo dos títulos h3 e das listas na seção "Formação" */
 #formacao h3, #formacao ul {
   margin-bottom: 20px;
 }
 
 /* --- CÓDIGO PARA RESPONSIVIDADE (CELULAR) --- */
-
-/* Esta regra só será aplicada em telas com largura máxima de 768 pixels (tablets e celulares) */
 @media (max-width: 768px) {
-
-    /* Altera o layout do cabeçalho para uma coluna vertical */
     header .container {
-        flex-direction: column; /* Empilha os itens (nome, menu, interruptor) verticalmente */
-        gap: 20px; /* Adiciona um espaço agradável entre os itens empilhados */
+        flex-direction: column;
+        gap: 20px;
     }
 
-    /* Altera o menu de navegação para uma coluna também */
     header nav ul {
-        flex-direction: column; /* Empilha os links do menu (Sobre, Formação, etc.) */
-        align-items: center; /* Centraliza os links de texto */
-        gap: 15px; /* Adiciona um espaço entre cada link do menu */
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
     }
 
-    /* Remove a margem da esquerda que só fazia sentido no layout horizontal */
     header nav ul li {
         margin-left: 0;
     }
 
-    /* Reduz um pouco o espaçamento das seções para telas menores */
     section {
         padding: 40px 0;
     }
