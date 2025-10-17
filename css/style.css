@@ -1,25 +1,3 @@
-Ok, vamos resolver isso. Analisei os três arquivos que você enviou e encontrei o problema.
-
-É uma combinação de duas coisas:
-
-O problema principal: Assim como na vez em que a página ficou em branco, seus arquivos de código (principalmente o CSS) ainda contêm caracteres de espaço inválidos. O navegador tenta ler o style.css, encontra um desses caracteres e para de processar o arquivo. Por isso, a regra body.dark-theme e os estilos do interruptor nunca são aplicados, mesmo que o JavaScript esteja funcionando perfeitamente.
-
-Um detalhe menor: Seu arquivo css/style.css ainda tem o estilo do botão antigo (#theme-toggle), que não é mais necessário e pode ser removido para limpar o código.
-
-A Solução: Limpeza do CSS
-A solução é a mesma da outra vez: substituir completamente o conteúdo do seu arquivo css/style.css por uma versão "limpa", sem os caracteres problemáticos e sem o código antigo.
-
-Faça exatamente o seguinte:
-
-Abra o seu arquivo css/style.css no Visual Studio Code.
-
-Apague TUDO o que está dentro dele.
-
-Copie e cole o código corrigido abaixo no lugar. Note que eu já removi o bloco de código do #theme-toggle que não era mais usado.
-
-css/style.css (Versão Corrigida e Limpa)
-CSS
-
 /* Importando uma fonte do Google Fonts para um visual mais moderno */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
@@ -193,7 +171,6 @@ form button:hover {
     opacity: 0.9;
 }
 
-
 /* Rodapé */
 footer {
     text-align: center;
@@ -202,7 +179,6 @@ footer {
 }
 
 /* --- Estilos Adicionais para a Seção Portifólio Interativa --- */
-
 .intro-portifolio {
     text-align: center;
     max-width: 700px;
@@ -245,7 +221,6 @@ footer {
 }
 
 /* --- Estilos para o Interruptor de Tema --- */
-
 .theme-switch {
   position: relative;
   display: inline-block;
@@ -310,7 +285,6 @@ input:checked + .slider:before {
 input:checked + .slider .fa-sun {
   opacity: 0;
 }
-
 input:checked + .slider .fa-moon {
   opacity: 1;
 }
