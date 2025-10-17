@@ -63,7 +63,10 @@ header .container {
     align-items: center;
 }
 
-/* Remove as bolinhas da lista do menu */
+header h1 {
+    font-size: 1.5rem;
+}
+
 header nav ul {
     list-style: none;
     display: flex;
@@ -73,7 +76,6 @@ header nav ul li {
     margin-left: 20px;
 }
 
-/* Tira o sublinhado dos links do menu */
 header nav ul li a {
     text-decoration: none;
     color: var(--cor-primaria);
@@ -81,12 +83,125 @@ header nav ul li a {
     transition: color 0.3s;
 }
 
-/* Muda a cor do link quando passamos o mouse */
 header nav ul li a:hover {
     color: var(--cor-texto);
 }
 
-/* --- Estilos para o Interruptor de Tema --- */
+section {
+    padding: 60px 0;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+section h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2rem;
+    color: var(--cor-primaria);
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 5px;
+}
+
+form input, form textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 5px;
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: 'Poppins', sans-serif;
+}
+
+form button {
+    padding: 12px;
+    border: none;
+    background-color: var(--cor-primaria);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    opacity: 0.9;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+.intro-portifolio {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    font-size: 1.1rem;
+}
+
+.portifolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.portifolio-item {
+    background: var(--cor-cabecalho);
+    padding: 20px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.portifolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.portifolio-item.futuro {
+    position: relative;
+    overflow: hidden;
+    border-style: dashed;
+    border-width: 2px;
+}
+
+.portifolio-item.futuro .conteudo-futuro {
+    opacity: 0.5;
+    transition: opacity 0.4s ease;
+}
+
+.portifolio-item.futuro:hover .conteudo-futuro {
+    opacity: 1;
+}
+
+.portifolio-item.futuro span {
+    position: absolute;
+    top: 15px;
+    right: -50px;
+    background-color: var(--cor-primaria);
+    color: #fff;
+    padding: 5px 40px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transform: rotate(45deg);
+    transition: right 0.4s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.portifolio-item.futuro:hover span {
+    right: -30px;
+}
+
 .theme-switch {
   position: relative;
   display: inline-block;
@@ -94,14 +209,12 @@ header nav ul li a:hover {
   height: 34px;
 }
 
-/* Esconde o checkbox original, pois vamos criar um visual para ele */
 .theme-switch input {
     opacity: 0;
     width: 0;
     height: 0;
 }
 
-/* O 'slider' é o fundo do interruptor */
 .slider {
     position: absolute;
     cursor: pointer;
@@ -114,7 +227,6 @@ header nav ul li a:hover {
     justify-content: space-around;
 }
 
-/* Cria o círculo branco que se move */
 .slider:before {
     position: absolute;
     content: "";
@@ -127,57 +239,22 @@ header nav ul li a:hover {
     border-radius: 50%;
 }
 
-/* Estilo aplicado quando o interruptor está LIGADO */
 input:checked + .slider {
     background-color: var(--cor-primaria);
 }
 
-/* Move o círculo para a direita quando o interruptor está LIGADO */
 input:checked + .slider:before {
     transform: translateX(26px);
 }
 
-/* Esconde o ícone da lua (tema claro) */
+.slider .fas {
+    color: #fff;
+    transition: opacity 0.4s ease;
+}
+
 .slider .fa-moon {
     opacity: 0;
 }
 
-/* Esconde o sol e mostra a lua quando o interruptor está LIGADO */
 input:checked + .slider .fa-sun {
     opacity: 0;
-}
-input:checked + .slider .fa-moon {
-    opacity: 1;
-}
-
-/* Adiciona um espaço abaixo do primeiro parágrafo da seção "Sobre" */
-.espaco-paragrafo {
-  margin-bottom: 25px;
-}
-
-/* Adiciona um espaço abaixo dos títulos e listas da seção "Formação" */
-#formacao h3, #formacao ul {
-  margin-bottom: 20px;
-}
-
-/* --- CÓDIGO PARA RESPONSIVIDADE (CELULAR) --- */
-/* Estas regras só valem para telas com até 768px de largura */
-@media (max-width: 768px) {
-    /* Empilha os itens do cabeçalho na vertical */
-    header .container {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    /* Empilha os links do menu também */
-    header nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-
-    /* Remove a margem lateral que não é mais necessária */
-    header nav ul li {
-        margin-left: 0;
-    }
-}
