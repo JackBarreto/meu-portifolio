@@ -90,6 +90,12 @@ header nav ul li a:hover {
 }
 
 /* --- Estilos para o Interruptor de Tema --- */
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
 
 /* Esconde o checkbox original, pois vamos criar um visual para ele */
 .theme-switch input {
@@ -147,6 +153,16 @@ input:checked + .slider .fa-moon {
     opacity: 1;
 }
 
+/* Adiciona um espaço abaixo do primeiro parágrafo da seção "Sobre" */
+.espaco-paragrafo {
+  margin-bottom: 25px;
+}
+
+/* Adiciona um espaço abaixo dos títulos e listas da seção "Formação" */
+#formacao h3, #formacao ul {
+  margin-bottom: 20px;
+}
+
 /* --- CÓDIGO PARA RESPONSIVIDADE (CELULAR) --- */
 /* Estas regras só valem para telas com até 768px de largura */
 @media (max-width: 768px) {
@@ -163,6 +179,7 @@ input:checked + .slider .fa-moon {
         gap: 15px;
     }
 
+    /* Remove a margem lateral que não é mais necessária */
     header nav ul li {
         margin-left: 0;
     }
