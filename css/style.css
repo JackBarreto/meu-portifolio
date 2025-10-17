@@ -93,6 +93,37 @@ section h2 {
     color: var(--cor-primaria);
 }
 
+.portifolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.portifolio-item {
+    background: var(--cor-cabecalho);
+    padding: 20px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.portifolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.portifolio-item h3 {
+    margin-bottom: 10px;
+}
+
+.portifolio-item a {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: var(--cor-primaria);
+    font-weight: bold;
+}
+
 form {
     max-width: 600px;
     margin: 0 auto;
@@ -141,25 +172,6 @@ footer {
     max-width: 700px;
     margin: 0 auto 40px auto;
     font-size: 1.1rem;
-}
-
-.portifolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-}
-
-.portifolio-item {
-    background: var(--cor-cabecalho);
-    padding: 20px;
-    border: 1px solid var(--cor-borda);
-    border-radius: 5px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.portifolio-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .portifolio-item.futuro {
@@ -267,26 +279,4 @@ input:checked + .slider .fa-moon {
 
 #formacao h3, #formacao ul {
   margin-bottom: 20px;
-}
-
-/* --- CÓDIGO PARA RESPONSIVIDADE (CELULAR) --- */
-@media (max-width: 768px) {
-    header .container {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    header nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-
-    header nav ul li {
-        margin-left: 0;
-    }
-
-    section {
-        padding: 40px 0;
-    }
 }
