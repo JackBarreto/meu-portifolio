@@ -1,3 +1,25 @@
+Ok, vamos resolver isso. Analisei os três arquivos que você enviou e encontrei o problema.
+
+É uma combinação de duas coisas:
+
+O problema principal: Assim como na vez em que a página ficou em branco, seus arquivos de código (principalmente o CSS) ainda contêm caracteres de espaço inválidos. O navegador tenta ler o style.css, encontra um desses caracteres e para de processar o arquivo. Por isso, a regra body.dark-theme e os estilos do interruptor nunca são aplicados, mesmo que o JavaScript esteja funcionando perfeitamente.
+
+Um detalhe menor: Seu arquivo css/style.css ainda tem o estilo do botão antigo (#theme-toggle), que não é mais necessário e pode ser removido para limpar o código.
+
+A Solução: Limpeza do CSS
+A solução é a mesma da outra vez: substituir completamente o conteúdo do seu arquivo css/style.css por uma versão "limpa", sem os caracteres problemáticos e sem o código antigo.
+
+Faça exatamente o seguinte:
+
+Abra o seu arquivo css/style.css no Visual Studio Code.
+
+Apague TUDO o que está dentro dele.
+
+Copie e cole o código corrigido abaixo no lugar. Note que eu já removi o bloco de código do #theme-toggle que não era mais usado.
+
+css/style.css (Versão Corrigida e Limpa)
+CSS
+
 /* Importando uma fonte do Google Fonts para um visual mais moderno */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
@@ -87,21 +109,6 @@ header nav ul li a {
 header nav ul li a:hover {
     color: var(--cor-texto);
 }
-
-#theme-toggle {
-    padding: 8px 12px;
-    background-color: var(--cor-primaria);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#theme-toggle:hover {
-    opacity: 0.9;
-}
-
 
 /* Seções do Conteúdo Principal */
 section {
@@ -196,47 +203,114 @@ footer {
 
 /* --- Estilos Adicionais para a Seção Portifólio Interativa --- */
 
-/* Estilo para o parágrafo de introdução */
 .intro-portifolio {
     text-align: center;
     max-width: 700px;
-    margin: 0 auto 40px auto; /* Centraliza e adiciona espaço abaixo */
+    margin: 0 auto 40px auto;
     font-size: 1.1rem;
 }
 
-/* Estilo para os cartões de projetos futuros */
 .portifolio-item.futuro {
-    position: relative; /* Necessário para o posicionamento do "Em Breve" */
-    overflow: hidden; /* Garante que os efeitos fiquem dentro do cartão */
-    border-style: dashed; /* Borda tracejada para indicar que é um rascunho */
+    position: relative;
+    overflow: hidden;
+    border-style: dashed;
     border-width: 2px;
 }
 
 .portifolio-item.futuro .conteudo-futuro {
-    opacity: 0.5; /* Deixa o conteúdo um pouco transparente */
+    opacity: 0.5;
     transition: opacity 0.4s ease;
 }
 
 .portifolio-item.futuro:hover .conteudo-futuro {
-    opacity: 1; /* O conteúdo fica nítido ao passar o mouse */
+    opacity: 1;
 }
 
-/* Estilo da tag "Em Breve" */
 .portifolio-item.futuro span {
     position: absolute;
     top: 15px;
-    right: -50px; /* Começa fora do cartão */
+    right: -50px;
     background-color: var(--cor-primaria);
     color: #fff;
     padding: 5px 40px;
     font-weight: bold;
     font-size: 0.9rem;
-    transform: rotate(45deg); /* Rotaciona a faixa */
-    transition: right 0.4s ease; /* Animação suave */
+    transform: rotate(45deg);
+    transition: right 0.4s ease;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-/* Animação ao passar o mouse no cartão */
 .portifolio-item.futuro:hover span {
-    right: -30px; /* Move a faixa para dentro da visão */
+    right: -30px;
+}
+
+/* --- Estilos para o Interruptor de Tema --- */
+
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--cor-primaria);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider .fas {
+  color: #fff;
+  transition: opacity 0.4s ease;
+}
+
+.slider .fa-moon {
+  opacity: 0;
+}
+
+input:checked + .slider .fa-sun {
+  opacity: 0;
+}
+
+input:checked + .slider .fa-moon {
+  opacity: 1;
 }
