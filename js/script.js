@@ -1,54 +1,53 @@
-// Aguarda o conteúdo da página carregar completamente antes de executar o script
+// Executa o JavaScript somente depois que todo o HTML da página carregar
 document.addEventListener('DOMContentLoaded', function () {
 
-    // --- LÓGICA PARA VALIDAÇÃO DO FORMULÁRIO DE CONTATO ---
+    // --- LÓGICA PARA O FORMULÁRIO DE CONTATO ---
 
-    // Pega a referência do formulário no HTML pelo ID
+    // Guarda o elemento do formulário em uma variável
     const contactForm = document.getElementById('contact-form');
 
-    // Adiciona um "escutador" para o evento de 'submit' (envio) do formulário
+    // Executa uma função quando o formulário é enviado (botão de submit clicado)
     contactForm.addEventListener('submit', function (event) {
-        // Previne o comportamento padrão do formulário, que é recarregar a página
+        
+        // Impede a página de recarregar, para que a gente controle o que acontece
         event.preventDefault();
 
-        // Pega os valores dos campos do formulário, removendo espaços em branco
+        // Pega o texto digitado nos campos
         const nome = document.getElementById('nome').value.trim();
         const email = document.getElementById('email').value.trim();
         const mensagem = document.getElementById('mensagem').value.trim();
 
-        // 1. Validação: Verifica se algum campo está vazio
+        // Verifica se algum campo está vazio
         if (nome === '' || email === '' || mensagem === '') {
             alert('Por favor, preencha todos os campos.');
-            return; // Para a execução se houver erro
+            return; // Para a execução do código aqui
         }
 
-        // 2. Validação: Verifica se o formato do e-mail é válido
-        // Utiliza uma expressão regular simples para checar o formato
+        // Verifica se o email tem um formato válido
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
             alert('Por favor, insira um endereço de e-mail válido.');
-            return; // Para a execução se houver erro
+            return;
         }
 
-        // Se todas as validações passarem...
-        // 3. Simulação de envio: Exibe uma mensagem de sucesso
+        // Se tudo estiver certo, mostra uma mensagem de sucesso
         alert('Mensagem enviada com sucesso!');
 
-        // 4. Limpa os campos do formulário após o "envio"
+        // Limpa os campos do formulário
         contactForm.reset();
     });
 
 
-    // --- LÓGICA PARA ALTERNAR TEMA CLARO/ESCURO ---
+    // --- LÓGICA PARA O INTERRUPTOR DE TEMA ---
 
-    //Pega a referência do checkbox no HTML usando seu ID único.
+    // Guarda o checkbox do tema em uma variável
     const themeCheckbox = document.getElementById('theme-checkbox');
 
-    //Adiciona um "escutador de eventos" que fica monitorando o checkbox.
+    // Executa uma função quando o estado do interruptor muda (ligado/desligado)
     themeCheckbox.addEventListener('change', function () {
-        // Esta função anônima é executada TODA VEZ que o estado do checkbox muda (marcado/desmarcado).
         
-        // Acessa a lista de classes CSS da tag <body> e usa a função .toggle() para adicionar a classe 'dark-theme' se ela não existir, ou para remover a classe 'dark-theme' se ela já existir.
+        // Adiciona a classe 'dark-theme' ao body se não tiver, e remove se já tiver.
+        // É isso que faz a troca de tema no CSS funcionar!
         document.body.classList.toggle('dark-theme');
     });
 
