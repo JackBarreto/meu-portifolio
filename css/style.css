@@ -288,3 +288,13 @@ input:checked + .slider .fa-sun {
 input:checked + .slider .fa-moon {
   opacity: 1;
 }
+
+/* Cria o espaço entre os dois parágrafos na seção "Sobre mim" */
+.espaco-paragrafo {
+  margin-bottom: 25px;
+}
+
+/* Adiciona um espaço abaixo dos títulos h3 e das listas na seção "Formação" */
+#formacao h3, #formacao ul {
+  margin-bottom: 20px;
+}
