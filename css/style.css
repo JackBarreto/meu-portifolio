@@ -103,10 +103,10 @@ section h2 {
     color: var(--cor-primaria);
 }
 
-/* --- AJUSTES NA SEÇÃO PORTIFÓLIO --- */
+/* --- AJUSTES NA SEÇÃO PORTFÓLIO --- */
 
 /* Adiciona um espaço maior abaixo do texto de introdução */
-.intro-portifolio {
+.intro-portfolio {
     text-align: center;
     max-width: 700px;
     margin: 0 auto 40px auto;
@@ -114,14 +114,14 @@ section h2 {
 }
 
 /* Cria um grid para os itens do portfólio */
-.portifolio-grid {
+.portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px; /* Espaço entre os cards do portfólio */
 }
 
 /* Estilo de cada card do portfólio */
-.portifolio-item {
+.portfolio-item {
     background: var(--cor-cabecalho);
     padding: 20px;
     border: 1px solid var(--cor-borda);
@@ -130,20 +130,20 @@ section h2 {
 }
 
 /* Efeito de "levantar" o card ao passar o mouse */
-.portifolio-item:hover {
+.portfolio-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 /* Estilo dos cards de projetos futuros */
-.portifolio-item.futuro {
+.portfolio-item.futuro {
     position: relative; /* Necessário para a faixa "Em Breve" funcionar */
     overflow: hidden; /* Garante que a faixa não "vaze" para fora do card */
     border-style: dashed;
 }
 
 /* Adiciona a faixa "Em Breve" no canto do card */
-.portifolio-item.futuro span {
+.portfolio-item.futuro span {
     position: absolute;
     top: 15px;
     right: -50px; /* Começa fora da tela para animar */
@@ -157,7 +157,7 @@ section h2 {
 }
 
 /* Efeito que mostra a faixa ao passar o mouse */
-.portifolio-item.futuro:hover span {
+.portfolio-item.futuro:hover span {
     right: -30px; /* Move a faixa para dentro */
 }
 
