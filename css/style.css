@@ -103,10 +103,19 @@ section h2 {
     color: var(--cor-primaria);
 }
 
+/* --- AJUSTES NA SEÇÃO PORTIFÓLIO --- */
+
+/* Adiciona um espaço maior abaixo do texto de introdução */
+.intro-portifolio {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    font-size: 1.1rem;
+}
+
 /* Cria um grid para os itens do portfólio */
 .portifolio-grid {
     display: grid;
-    /* Define que as colunas se ajustam automaticamente ao tamanho da tela */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px; /* Espaço entre os cards do portfólio */
 }
@@ -116,25 +125,45 @@ section h2 {
     background: var(--cor-cabecalho);
     padding: 20px;
     border: 1px solid var(--cor-borda);
-    border-radius: 5px;
+    border-radius: 8px; /* Bordas um pouco mais arredondadas */
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 /* Efeito de "levantar" o card ao passar o mouse */
 .portifolio-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 /* Estilo dos cards de projetos futuros */
 .portifolio-item.futuro {
-    position: relative;
-    overflow: hidden;
+    position: relative; /* Necessário para a faixa "Em Breve" funcionar */
+    overflow: hidden; /* Garante que a faixa não "vaze" para fora do card */
     border-style: dashed;
-    border-width: 2px;
 }
 
-/* Estilo do formulário de contato */
+/* Adiciona a faixa "Em Breve" no canto do card */
+.portifolio-item.futuro span {
+    position: absolute;
+    top: 15px;
+    right: -50px; /* Começa fora da tela para animar */
+    background-color: var(--cor-primaria);
+    color: #fff;
+    padding: 5px 40px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transform: rotate(45deg); /* Rotaciona a faixa */
+    transition: right 0.4s ease; /* Animação suave */
+}
+
+/* Efeito que mostra a faixa ao passar o mouse */
+.portifolio-item.futuro:hover span {
+    right: -30px; /* Move a faixa para dentro */
+}
+
+
+/* --- AJUSTES NA SEÇÃO CONTATO (FORMULÁRIO MODERNO) --- */
+
 form {
     max-width: 600px;
     margin: 0 auto;
@@ -143,7 +172,46 @@ form {
     flex-direction: column;
 }
 
-/* Estilo do rodapé */
+/* Estilo para os textos "Nome:", "E-mail:", etc. */
+form label {
+    margin-bottom: 8px; /* Espaço entre o texto e o campo de digitação */
+    font-weight: 600;
+}
+
+/* Estilo para os campos de digitar (input) e a caixa de mensagem (textarea) */
+form input, form textarea {
+    width: 100%; /* Faz os campos ocuparem toda a largura */
+    padding: 12px;
+    margin-bottom: 20px; /* Espaço entre os campos */
+    border: 1px solid var(--cor-borda);
+    border-radius: 5px;
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+
+/* Estilo do botão de Enviar */
+form button {
+    padding: 12px;
+    border: none;
+    background-color: var(--cor-primaria);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, filter 0.2s;
+}
+
+/* Efeito de "aumentar" e dar brilho ao passar o mouse no botão */
+form button:hover {
+    transform: scale(1.02);
+    filter: brightness(1.1);
+}
+
+
+/* --- RODAPÉ --- */
 footer {
     text-align: center;
     padding: 20px 0;
@@ -158,15 +226,11 @@ footer {
     width: 60px;
     height: 34px;
 }
-
-/* Esconde o checkbox original, pois vamos criar um visual para ele */
 .theme-switch input {
     opacity: 0;
     width: 0;
     height: 0;
 }
-
-/* O 'slider' é o fundo do interruptor */
 .slider {
     position: absolute;
     cursor: pointer;
@@ -178,8 +242,6 @@ footer {
     align-items: center;
     justify-content: space-around;
 }
-
-/* Cria a bolinha branca que desliza no interruptor */
 .slider:before {
     position: absolute;
     content: "";
@@ -191,23 +253,15 @@ footer {
     transition: .4s;
     border-radius: 50%;
 }
-
-/* Estilo aplicado quando o interruptor está LIGADO */
 input:checked + .slider {
     background-color: var(--cor-primaria);
 }
-
-/* Move o círculo para a direita quando o interruptor está LIGADO */
 input:checked + .slider:before {
     transform: translateX(26px);
 }
-
-/* Esconde o ícone da lua (no tema claro) */
 .slider .fa-moon {
     opacity: 0;
 }
-
-/* Esconde o sol e mostra a lua quando o interruptor está LIGADO */
 input:checked + .slider .fa-sun {
     opacity: 0;
 }
@@ -220,29 +274,22 @@ input:checked + .slider .fa-moon {
 .espaco-paragrafo {
     margin-bottom: 25px;
 }
-
 #formacao h3, #formacao ul {
     margin-bottom: 20px;
 }
 
 
 /* --- CÓDIGO PARA RESPONSIVIDADE (CELULAR) --- */
-/* Estas regras só valem para telas pequenas, como as de celulares */
 @media (max-width: 768px) {
-    /* Empilha os itens do cabeçalho na vertical */
     header .container {
         flex-direction: column;
         gap: 20px;
     }
-
-    /* Empilha os links do menu também */
     header nav ul {
         flex-direction: column;
         align-items: center;
         gap: 15px;
     }
-
-    /* Remove a margem lateral que não é mais necessária no celular */
     header nav ul li {
         margin-left: 0;
     }
